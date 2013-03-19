@@ -35,6 +35,5 @@
 #    else: print(FB[n])
 
 # 3. One line!
-for i in [max(f+b,str(n)) for f, b, n in zip(33*["","","Fizz"]+[""], 20*["","","","","Buzz"],range(1,101))]: print(i)
-
+print("\n".join([max(f+b,str(n+1)) for f,b,n in zip(33*["","","Fizz"]+[""], 20*["","","","","Buzz"],range(100))]))
 
