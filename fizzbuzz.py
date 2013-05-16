@@ -38,7 +38,13 @@
 # print("\n".join([max(f+b,str(n+1)) for f,b,n in zip(33*["","","Fizz"]+[""], 20*["","","","","Buzz"],range(100))]))
 
 # 4. One line, more generalized, as a function:
-fizzbuzz = lambda f, b, num: [max(fi+bi,str(i)) for fi, bi, i in zip((num//f+1)*((f-1)*[""]+["Fizz"]), (num//b+1)*((b-1)*[""]+["Buzz"]),range(1,num+1))]
+# fizzbuzz = lambda f, b, num: [max(fi+bi,str(i)) for fi, bi, i in zip((num//f+1)*((f-1)*[""]+["Fizz"]), (num//b+1)*((b-1)*[""]+["Buzz"]),range(1,num+1))]
 
 # Then format as a string:
-print " ".join(fizzbuzz(3,5,100))
+# print " ".join(fizzbuzz(3,5,100))
+
+# 5. One line, even more generalized:
+fizzbuzz = lambda d,n:[max(w,str(i)) for w,i in zip(["".join(z) for z in zip(*[(n//p+1)*((p-1)*[""]+[d[p]]) for p in sorted(d.keys())])],range(1,n+1))]
+print " ".join(fizzbuzz({2: "Foz", 3:"Fizz", 5:"Buzz", 7:"Baz"},100))
+# One downside to using a dictionary as input is you can't specify the order that
+# rules are applied.
